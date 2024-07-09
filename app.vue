@@ -8,7 +8,7 @@
         </v-app-bar>
         <v-main>
           <v-container fluid>
-            <NavigationLinks />
+            <!--<NavigationLinks />-->
             <NuxtPage />
           </v-container>
         </v-main>

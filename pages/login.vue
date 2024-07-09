@@ -1,53 +1,45 @@
 <template>
-    <v-app>
-        <v-container fluid fill-height>
-            <v-row align="center" justify="center">
-                <v-col cols="12" md="6">
-                    <v-card class="elevation-12">
-                        <v-toolbar dark color="primary">
-                            <v-toolbar-title>Login form</v-toolbar-title>
-                        </v-toolbar>
-                        <v-card-text>
-                            <v-form @submit.prevent="login">
-                                <v-text-field v-model="loginForm.login" prepend-icon="mdi-account" label="Login"
-                                    type="text"></v-text-field>
-                                <v-text-field v-model="loginForm.password" prepend-icon="mdi-lock" label="Password"
-                                    type="password"></v-text-field>
-                            </v-form>
-                        </v-card-text>
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn color="primary" @click="login">Login</v-btn>
-                        </v-card-actions>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
-    </v-app>
+    <v-container>
+        <v-row class="justify-center align-center">
+            <v-col cols="12" md="6">
+                <v-card class="elevation-12">
+                    <v-toolbar color="primary" title="Login to Recruitment System">
+
+                    </v-toolbar>
+                    <v-card-text>
+                        <v-text-field name="email" label="Email" id="email" prepend-icon="mdi-at"
+                            clearable></v-text-field>
+                        <v-text-field name="password" label="Password" id="password" type="password"
+                            prepend-icon="mdi-lock" clearable></v-text-field>
+                    </v-card-text>
+
+                    <v-btn small color="primary" class="ma-3" cols="12" md="3">Login</v-btn>
+                    <v-btn @click="forgotPassword" variant="text" class="ma-3 float-right" cols="12" md="3">Forgot
+                        Password</v-btn>
+
+                </v-card>
+
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
-<script>
-export default {
-    name: 'Login',
-    data() {
-        return {
-            loginForm: {
-                login: '',
-                password: '',
-            },
-        };
-    },
-    methods: {
-        login() {
-            // Perform login logic here
-            console.log('Logging in with:', this.loginForm);
-            // Example: Redirect to home page after successful login
-            this.$router.push('/');
-        },
-    },
-};
-</script>
+<script setup>
+import { useRouter } from 'vue-router'
 
-<style scoped>
-/* Add scoped styles as needed */
-</style>
+const router = useRouter()
+
+let email = ''
+let password = ''
+
+const login = () => {
+    // Handle login logic here
+    console.log('Logging in...')
+}
+
+const forgotPassword = () => {
+    // Navigate to the forgot-password route
+    console.log('Forgot Pass')
+    router.push('/forgot-password')
+}
+</script>
