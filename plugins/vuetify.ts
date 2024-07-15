@@ -9,12 +9,15 @@ const mytheme = {
   dark: false,
   colors: {
     primary: colors.blueGrey.base,
-    secondary: colors.blue.lighten2,
-    accent: colors.lime.accent3,
+    secondary: colors.blueGrey.lighten3, // Lighten the primary color for secondary
+    accent: colors.blueGrey.darken3, // Darken the primary color for accent
     error: colors.red.base,
     warning: colors.orange.darken2,
     info: colors.cyan.lighten1,
     success: colors.teal.accent3,
+    thead: colors.blueGrey.darken2, // Darker shade for the table header
+    stripedOdd: colors.blueGrey.lighten5, // Lighter shade for odd rows
+    stripedEven: colors.blueGrey.lighten4, // Even lighter shade for even rows
   }
 }
 
