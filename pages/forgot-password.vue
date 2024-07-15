@@ -1,7 +1,4 @@
 <template>
-    <v-app-bar app color="primary" dark>
-        <v-toolbar-title>Forgot Password - Recruitment System</v-toolbar-title>
-    </v-app-bar>
     <v-main>
         <v-container>
             <v-row class="justify-center align-center">

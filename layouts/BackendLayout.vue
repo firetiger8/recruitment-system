@@ -6,13 +6,13 @@
         <v-menu min-width="200px" rounded open-on-hover>
             <template v-slot:activator="{ props }">
                 <v-btn icon v-bind="props">
-                    <v-avatar image="https://randomuser.me/api/portraits/men/85.jpg" size="small"></v-avatar>
+                    <v-avatar image="/assets/images/avatar.jpg" size="small"></v-avatar>
                 </v-btn>
             </template>
             <v-card color="grey-darken-1">
                 <v-card-text>
                     <div class="mx-auto text-center">
-                        <v-avatar image="https://randomuser.me/api/portraits/men/85.jpg"></v-avatar>
+                        <v-avatar image="/assets/images/avatar.jpg"></v-avatar>
                         <h3>Daniel</h3>
                         <p class="text-caption mt-1">
                             daniel@gmail.com
@@ -30,25 +30,26 @@
             </v-card>
         </v-menu>
     </v-app-bar>
-    <v-navigation-drawer color="grey-darken-3" v-model="drawer" :rail="rail" permanent @click="rail = false">
-        <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg" title="John Leider" nav>
+    <v-navigation-drawer color="grey-darken-3" v-model="drawer" :rail="rail" rail-width="100" permanent
+        @click="rail = false">
+        <v-list-item prepend-avatar="/assets/images/avatar.jpg" title="Daniel" nav>
             <template v-slot:append>
                 <v-btn icon="mdi-chevron-left" variant="text" @click.stop="rail = !rail"></v-btn>
             </template>
         </v-list-item>
-        <v-list dense>
-            <v-list-item class="SelectedTile" active-class="SelectedTile-active" v-for="item in items" :key="item.title"
-                :to="item.path" nav>
+        <v-list>
+            <v-list-item v-for="item in items" :key="item.title" :to="item.path" nav>
                 <v-list-item :prepend-icon="item.icon" :title="item.title" value="home"></v-list-item>
 
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
     <v-main>
-        This is Backend layout
         <slot />
     </v-main>
-
+    <v-footer color="primary" app class="justify-center">
+        <span>&copy; 2024 Firetiger</span>
+    </v-footer>
 </template>
 
 <script setup>
@@ -63,19 +64,3 @@ const items = ref([
     { title: 'Setting', icon: 'mdi-cog', path: "/setting" },
 ])
 </script>
-
-<style scoped>
-.ListItemClass {
-    color: #f5f5f5;
-}
-
-.SelectedTile:hover {
-    border-radius: 4px;
-    background: #455A64
-}
-
-.SelectedTile-active {
-    border-radius: 4px;
-    background: rgba(10, 204, 117, 0.19)
-}
-</style>
