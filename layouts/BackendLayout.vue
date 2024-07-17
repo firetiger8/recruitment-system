@@ -60,6 +60,7 @@ const drawer = ref(true)
 
 const items = ref([
     { title: 'Dashboard', icon: 'mdi-home-city', path: "/dashboard" },
+    { title: 'Daftar Lowongan', icon: 'mdi-format-list-numbered', path: "/daftar-lowongan" },
     { title: 'Daftar Pelamar', icon: 'mdi-account-details', path: "/daftar-pelamar" },
     { title: 'My Profile', icon: 'mdi-account', path: "/profile" },
     { title: 'Setting', icon: 'mdi-cog', path: "/setting" },

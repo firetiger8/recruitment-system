@@ -1,7 +1,7 @@
 <template>
 
     <v-card class="mx-2 my-2" elevation="6">
-        <v-card-title>Daftar Pelamar Untuk Posisi : Satpam (Site : Pakuwon Mall)</v-card-title>
+        <v-card-title>Daftar Lowongan</v-card-title>
         <v-chip color="primary" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-details">
             Target : 100 Orang
         </v-chip>

@@ -33,6 +33,7 @@ export default defineNuxtPlugin((app) => {
     icons: {
       defaultSet: 'mdi',
     },
+    
   })
   app.vueApp.use(vuetify)
 })
