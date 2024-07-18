@@ -1,36 +1,34 @@
 <template>
 
-    <v-card class="mx-2 my-2" elevation="6">
+    <v-card class="mx-2 my-2 px-2" elevation="6">
         <v-card-title>Daftar Lowongan</v-card-title>
         <v-chip color="primary" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-details">
-            Target : 100 Orang
+            Jumlah : 6 Lowongan
         </v-chip>
-        <v-chip color="blue" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-group">
-            Pelamar : 50 Orang
+        <v-chip color="orange" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-search">
+            Aktif : 5 Lowongan
         </v-chip>
-        <v-chip color="green" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-check">
-            Diterima : 20 Orang
-        </v-chip>
-        <v-chip color="red" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-remove">
-            Ditolak : 30 Orang
+        <v-chip color="green" variant="flat" class="my-2 mx-1" prepend-icon="mdi-check-bold">
+            Selesai : 1 Lowongan
         </v-chip>
         <v-data-table :items="items" :headers="headers" :sort-by="[{ key: 'nama', order: 'asc' }]"
-            class="custom-data-table">
+            class="custom-data-table" density="comfortable">
             <template v-slot:item.nama="{ item }">
                 <v-avatar size="small">
                     <img :src="item.avatar" alt="Avatar" />
                 </v-avatar>
                 {{ item.nama }}
             </template>
-
+            <template v-slot:item.status="{ item }">
+                <v-chip v-if="item.status === 'AKTIF'" color="orange" variant="tonal" size="small">{{ item.status
+                    }}</v-chip>
+                <v-chip v-else-if="item.status === 'SELESAI'" color="green" variant="tonal" size="small">{{ item.status
+                    }}</v-chip>
+                <v-chip v-else color="grey" size="small">{{ item.status }}</v-chip>
+            </template>
             <template v-slot:item.actions="{ item }">
 
-
                 <v-btn color="primary" density="compact" class="mx-2">View</v-btn>
-                <v-btn density="comfortable" icon="mdi-dots-vertical"></v-btn>
-
-
-
             </template>
         </v-data-table>
     </v-card>
@@ -47,22 +45,53 @@ definePageMeta({
 
 const headers = ref([
     {
-        title: 'Nama',
+        title: 'Posisi',
         align: 'start',
-        key: 'nama',
+        key: 'posisi',
+        width: '400px'
     },
-    { title: 'Umur', key: 'umur' },
-    { title: 'Posisi', key: 'posisi' },
+    { title: 'Lokasi', key: 'lokasi', width: '400px' },
+    { title: 'Jenis Kelamin', key: 'jenis-kelamin' },
+    { title: 'Tanggal Lowongan', key: 'tanggal-lowongan' },
+    {
+        title: 'Jumlah', key: 'jumlah', width: '10px', align: 'center',
+        children: [
+            { title: 'Dibutuhkan', key: 'dibutuhkan', width: '10px' },
+            { title: 'Pelamar', key: 'pelamar', width: '10px' },
+            { title: 'Diterima', key: 'diterima', width: '10px' },
+            { title: 'Kekurangan', key: 'kekurangan', width: '10px' },
+        ],
+    },
+
     { title: 'Status', key: 'status' },
-    { title: 'Actions', key: 'actions', sortable: false, align: 'end', },
+    { title: 'Actions', key: 'actions' },
 ]);
 
 const items = ref([
-    { nama: 'James', umur: 30, posisi: 'Satpam', status: 'Interview', avatar: '/_nuxt/assets/images/avatar.jpg' },
-    { nama: 'Andy', umur: 25, posisi: 'Satpam', status: 'Vetting Dokumen', avatar: '/_nuxt/assets/images/avatar.jpg' },
-    { nama: 'Paul', umur: 40, posisi: 'Satpam', status: 'Interview 2', avatar: '/_nuxt/assets/images/avatar.jpg' },
-    { nama: 'Ben', umur: 35, posisi: 'Satpam', status: 'Tolak', avatar: '/_nuxt/assets/images/avatar.jpg' },
-    { nama: 'Mike', umur: 32, posisi: 'Satpam', status: 'Terima', avatar: '/_nuxt/assets/images/avatar.jpg' }
+    {
+        posisi: 'Satpam', lokasi: 'Pakuwon Mall', 'jenis-kelamin': 'Pria / Wanita', 'tanggal-lowongan': '01 Juli 2024',
+        dibutuhkan: '100', 'pelamar': '50', 'diterima': '20', 'kekurangan': '80', 'status': 'AKTIF'
+    },
+    {
+        posisi: 'Satpam', lokasi: 'Galaxy Mall', 'jenis-kelamin': 'Pria / Wanita', 'tanggal-lowongan': '06 Juli 2024',
+        dibutuhkan: '150', 'pelamar': '50', 'diterima': '20', 'kekurangan': '80', 'status': 'AKTIF'
+    },
+    {
+        posisi: 'Satpam', lokasi: 'Tunjungan Plaza', 'jenis-kelamin': 'Pria / Wanita', 'tanggal-lowongan': '11 Juli 2024',
+        dibutuhkan: '200', 'pelamar': '50', 'diterima': '20', 'kekurangan': '80', 'status': 'AKTIF'
+    },
+    {
+        posisi: 'Buruh Pabrik', lokasi: 'Pabrik Djarum', 'jenis-kelamin': 'Pria / Wanita', 'tanggal-lowongan': '12 Juli 2024',
+        dibutuhkan: '50', 'pelamar': '50', 'diterima': '20', 'kekurangan': '80', 'status': 'AKTIF'
+    },
+    {
+        posisi: 'Machine Operator', lokasi: 'Pabrik Maspion', 'jenis-kelamin': 'Pria / Wanita', 'tanggal-lowongan': '13 Juli 2024',
+        dibutuhkan: '40', 'pelamar': '100', 'diterima': '40', 'kekurangan': '0', 'status': 'SELESAI'
+    },
+    {
+        posisi: 'Operator Kebun', lokasi: 'Pabrik Gudang Garam', 'jenis-kelamin': 'Pria / Wanita', 'tanggal-lowongan': '14 Juli 2024',
+        dibutuhkan: '70', 'pelamar': '50', 'diterima': '20', 'kekurangan': '80', 'status': 'AKTIF'
+    },
 ]);
 
 const statusOptions = ref(['Interview', 'Vetting Dokumen', 'Terima', 'Tolak']);
