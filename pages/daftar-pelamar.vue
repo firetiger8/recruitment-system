@@ -2,6 +2,8 @@
 
     <v-card class="mx-2 my-2" elevation="6">
         <v-card-title>Daftar Pelamar Untuk Posisi : Satpam (Site : Pakuwon Mall)</v-card-title>
+        <v-card-subtitle>Dibutuhkan 100 Orang Pria / wanita, min usia 19 Tahun. Lokasi : Pakuwon Mall <v-btn
+                color="primary" density="compact" class="mx-2">View Detail Lowongan</v-btn></v-card-subtitle>
         <v-chip color="primary" variant="flat" class="my-2 mx-1" prepend-icon="mdi-account-details">
             Target : 100 Orang
         </v-chip>
