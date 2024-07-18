@@ -31,7 +31,7 @@
         </v-menu>
     </v-app-bar>
     <v-navigation-drawer color="grey-darken-3" v-model="drawer" :rail="rail" rail-width="100" permanent
-        @click="rail = false">
+        @click="rail = false" class="my-navigation-drawer">
         <v-list-item prepend-avatar="/assets/images/avatar.jpg" title="James" nav>
             <template v-slot:append>
                 <v-btn icon="mdi-chevron-left" variant="text" @click.stop="rail = !rail"></v-btn>
@@ -62,7 +62,10 @@ const items = ref([
     { title: 'Dashboard', icon: 'mdi-home-city', path: "/dashboard" },
     { title: 'Daftar Lowongan', icon: 'mdi-format-list-numbered', path: "/daftar-lowongan" },
     { title: 'Daftar Pelamar', icon: 'mdi-account-details', path: "/daftar-pelamar" },
+    { title: 'Daftar Formulir', icon: 'mdi-file-document', path: "/daftar-formulir" },
     { title: 'My Profile', icon: 'mdi-account', path: "/profile" },
     { title: 'Setting', icon: 'mdi-cog', path: "/setting" },
 ])
 </script>
+
+<style scoped></style>
